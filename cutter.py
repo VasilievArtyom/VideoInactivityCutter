@@ -4,7 +4,7 @@ import csv
 import numpy as np
 import argparse
 
-TRSH = 50.0
+TRSH = 58.55
 
 # Function to process a single video file
 def process_video(video_path, output_video_path, csv_output_path):
@@ -55,7 +55,7 @@ def process_video(video_path, output_video_path, csv_output_path):
             # Using cv2.putText() method
             frame = cv.putText(
                 frame, 
-                f'{curr_mse:04f}', 
+                f'MSE={curr_mse:04f} Inactive={curr_mse  < TRSH}', 
                 org=(50, 50),
                 fontFace=cv.FONT_HERSHEY_SIMPLEX, 
                 fontScale=1,
